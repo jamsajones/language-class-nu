@@ -48,11 +48,11 @@ describe('parse', function(){
   });
 
   it('should parse \' to quote for a list', function(){
-    expect(parse("'(a b c)")).to.eql(["quote", ["a", "b", "c"]]);
+    expect(parse("('(a b c))")).to.eql(["quote", ["a", "b", "c"]]);
   });
 
   it('should parse \' to quote for a atom', function(){
-    expect(parse("'file.txt")).to.eql(["quote", "file.txt"]);
+    expect(parse("('file.txt)")).to.eql(["quote", "file.txt"]);
   });
 
   it('should ignore comments ;;', function(){

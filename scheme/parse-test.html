@@ -44,12 +44,13 @@ expr =
     space* s:statement space* 
     { return s }
 
-statement = 
-    atom
+statement =
+   "'"
+   	{ return "quote" }
+  /  atom
   / "(" e:expr* ")" 
     { return e; }
-  / "'" e:expr       
-    { return ["quote", e]; }
+    
 		</textarea>
 	</div>
 </body>

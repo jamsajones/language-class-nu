@@ -1,11 +1,13 @@
 start =
-    expr
+  space+
+    { return undefined; }
+  / expr
 
 validchar =
     [0-9a-zA-Z_?!+\-=@#$%^&*/.]
 
 atom =
-    chars:validchar+ 
+    chars:validchar+
     { return chars.join("") }
 
 comment =
@@ -19,9 +21,9 @@ expr =
     space* s:statement space* 
     { return s }
 
-statement = 
-    atom
+statement =
+   "'"
+    { return "quote" }
+  /  atom
   / "(" e:expr* ")" 
     { return e; }
-  / "'" e:expr       
-    { return ["quote", e]; }
