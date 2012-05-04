@@ -1,0 +1,27 @@
+start =
+    expr
+
+validchar =
+    [0-9a-zA-Z_?!+\-=@#$%^&*/.]
+
+atom =
+    chars:validchar+ 
+    { return chars.join("") }
+
+comment =
+    ";;" [^\n]*
+
+space =
+    [\t\n\r ]
+  / comment
+
+expr = 
+    space* s:statement space* 
+    { return s }
+
+statement = 
+    atom
+  / "(" e:expr* ")" 
+    { return e; }
+  / "'" e:expr       
+    { return ["quote", e]; }

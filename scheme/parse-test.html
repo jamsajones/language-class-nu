@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<title>Parser Specs</title>
+	<link rel="stylesheet" href="mocha.css" />
+	<script src="jquery.js"></script>
+	<script src="expect.js"></script>
+	<script src="mocha.js"></script>
+	<script>mocha.setup('bdd')</script>
+	<script src="peg.js"></script>
+	<script src="test.parse.js"></script>
+	<script>
+		var lang ='';
+		$(function(){
+			lang = $('#lang').val();
+			mocha.run();
+		})
+	</script>
+</head>
+<body>
+	<div id="mocha"></div>
+	<div>
+		<textarea id="lang" style="display:none">
+start =
+	space+
+		{ return undefined; }
+	/ expr
+
+validchar =
+    [0-9a-zA-Z_?!+\-=@#$%^&*/.]
+
+atom =
+    chars:validchar+
+    { return chars.join("") }
+
+comment =
+    ";;" [^\n]*
+
+space =
+    [\t\n\r ]
+  / comment
+
+expr = 
+    space* s:statement space* 
+    { return s }
+
+statement = 
+    atom
+  / "(" e:expr* ")" 
+    { return e; }
+  / "'" e:expr       
+    { return ["quote", e]; }
+		</textarea>
+	</div>
+</body>
+</html>
