@@ -11,11 +11,13 @@ Scheme (https://github.com/jamsajones/language-class-nu/scheme)
 My simple implementation of a scheme language.
 
 You can do cool things like
+
 ```(+ 1 (+ 2 3))```
+
 or
-```(read (
-	'file.png
-))```
+
+```(read 
+	'file.png)```
 
 Right now it simply turns the language into a series of arrays.
 

@@ -47,8 +47,12 @@ describe('parse', function(){
     expect(parse("(+ 1   (f x 3 y))")).to.eql(["+", "1", ["f", "x", "3", "y"]]);
   });
 
-  it('should parse \' to quote', function(){
+  it('should parse \' to quote for a list', function(){
     expect(parse("'(a b c)")).to.eql(["quote", ["a", "b", "c"]]);
+  });
+
+  it('should parse \' to quote for a atom', function(){
+    expect(parse("'file.txt")).to.eql(["quote", "file.txt"]);
   });
 
   it('should ignore comments ;;', function(){
