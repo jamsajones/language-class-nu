@@ -16,8 +16,7 @@ You can do cool things like
 
 or
 
-```(read 
-	'file.png)```
+```(read 'file.png)```
 
 Right now it simply turns the language into a series of arrays.
 
