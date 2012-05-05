@@ -6,7 +6,7 @@ MUS Code
 ----------
 We have a language that takes a series of notes and puts them into the a "playable"
 
-Scheme Code
+Scheem Code
 ----------
 My simple implementation of a scheme language.
 
