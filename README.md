@@ -8,7 +8,7 @@ We have a language that takes a series of notes and puts them into the a "playab
 
 Scheem Code
 ----------
-My simple implementation of a scheme language.
+My simple implementation of a scheme like language.
 
 You can do cool things like
 
